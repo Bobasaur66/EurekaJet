@@ -15,7 +15,7 @@ namespace Eureka_Jet
     {
         private const string MyGUID = "com.Bobasaur.Eureka_Jet";
         private const string PluginName = "Eureka_Jet";
-        private const string VersionString = "1.0.0";
+        private const string VersionString = "1.0.2";
 
         private static readonly Harmony Harmony = new Harmony(MyGUID);
         public static ManualLogSource Log = new ManualLogSource(PluginName);
@@ -24,7 +24,6 @@ namespace Eureka_Jet
         {
             Logger.LogInfo($"Will load {PluginName} version {VersionString}.");
             Harmony.PatchAll();
-            Logger.LogInfo($"{PluginName} version {VersionString} is loaded.");
 
             Log = Logger;
 

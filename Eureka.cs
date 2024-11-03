@@ -15,6 +15,9 @@ using VehicleFramework.VehicleTypes;
 using static Oculus.Platform.Models.Product.Offer;
 using System.IO;
 using AircraftLib;
+using AircraftLib.Engines;
+using AircraftLib.VehicleTypes;
+using AircraftLib.Managers;
 
 namespace Eureka_Jet
 {
@@ -56,7 +59,7 @@ namespace Eureka_Jet
         {
             base.Update();
 
-            AircraftLib.FlightManager.CheckLandingGear(this);
+            FlightManager.CheckLandingGear(this);
         }
 
         public static void GetAssets()
@@ -110,7 +113,25 @@ namespace Eureka_Jet
                 return new Dictionary<TechType, int>
                 {
                     {
-                        TechType.PlasteelIngot, 1
+                        TechType.PlasteelIngot, 2
+                    },
+                    {
+                        TechType.AdvancedWiringKit, 3
+                    },
+                    {
+                        TechType.Lubricant, 1
+                    },
+                    {
+                        TechType.EnameledGlass, 2
+                    },
+                    {
+                        TechType.PowerCell, 2
+                    },
+                    {
+                        TechType.AramidFibers, 4
+                    },
+                    {
+                        TechType.Aerogel, 4
                     }
                 };
             }
@@ -305,7 +326,7 @@ namespace Eureka_Jet
             get
             {
                 List<GameObject> list = new List<GameObject>();
-                foreach (object obj in base.transform.Find("WaterClipProxies"))
+                foreach (object obj in transform.Find("WaterClipProxies"))
                 {
                     Transform transform = (Transform)obj;
                     list.Add(transform.gameObject);
